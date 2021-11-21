@@ -152,17 +152,38 @@ def event_handle(event):
         if (msg == "สวัสดี") :
             replyObj = TextSendMessage(text="ดีด้วย")
             line_bot_api.reply_message(rtoken, replyObj)
-        elif (msg == "กินไรยัง") :
+        elif (msg == "กินข้าว") :
             line_bot_api.reply_message(rtoken, replyObj)
-            replyObj = TextSendMessage(text="กินแล้ววว")
-        elif (msg == "แม่ให้กินหนมป่าว") :
+            replyObj = TextSendMessage(text="กินแล้ว")
+        elif (msg == "กินยัง") :
             line_bot_api.reply_message(rtoken, replyObj)    
-            replyObj = TextSendMessage(text="ม่ายให้กินค่าาา")
-        elif (msg == "ไปเที่ยวกันนน") :
+            replyObj = TextSendMessage(text="ยัง")
+        elif (msg == "หิวมั้ย") :
             line_bot_api.reply_message(rtoken, replyObj)    
-            replyObj = TextSendMessage(text="ติดโควิดค่ะสาว")
+            replyObj = TextSendMessage(text="ไม่หิว")
         else :    
-            
+            headers = request.headers
+            json_headers = json.dumps({k:v for k, v in headers.items()})
+            '''
+            json_line = request.get_json(force=False,cache=False)
+            json_line = json.dumps(json_line)
+            decoded = json.loads(json_line)
+            '''
+            #crl= pycurl.Curl()
+            #crl.setopt( crl.URL, "https://bots.dialogflow.com/line/newagent-egdm/webhook")
+            #crl.setopt( crl.POST, 1)
+            #crl.setopt( crl.BINARYTRANSFER, true)
+            #crl.setopt( crl.POSTFIELDS, json_headers)
+            #crl.setopt( crl.HTTPHEADER, json_headers)
+            #crl.setopt( crl.SSL_VERIFYHOST, 2)
+            #crl.setopt( crl.SSL_VERIFYPEER, 1)
+            #crl.setopt( crl.FOLLOWLOCATION, 1)
+            #crl.setopt( crl.RETURNTRANSFER, 1)
+            #crl.perform()
+            #crl.close()
+
+            replyObj = TextSendMessage(text=json_headers)
+            line_bot_api.reply_message(rtoken, replyObj)
     elif msgType == "image":
         try:
             message_content = line_bot_api.get_message_content(event['message']['id'])
