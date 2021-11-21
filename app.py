@@ -26,7 +26,7 @@ UPLOAD_FOLDER ='static/uploads/'
 DOWNLOAD_FOLDER = 'static/downloads/'
 ALLOWED_EXTENSIONS = {'jpg', 'png','.jpeg'}
 
-lineaccesstoken = ''
+lineaccesstoken = 'UKSAMa2ZQvBhCsQr1LfgsJQy0ZNib35KkZ7ex13eWNiPU4rBXzdL0vroQS9Ko876kYskr3Bvm2kEvtRqWkwcjuGojw4Z0AnoCBEfA80WljdeKwnputI2M0+sdUrTJhAq2QFsk4h3cyVxni3FjB1pIgdB04t89/1O/w1cDnyilFU='
 
 line_bot_api = LineBotApi(lineaccesstoken)
 
@@ -126,7 +126,7 @@ def reply(intent,text,reply_token,id,disname):
 
 def event_handle(event):
     print(event)
-    try: 
+    try:
         userId = event['source']['userId']
     except:
         print('error cannot get userId')
@@ -154,13 +154,13 @@ def event_handle(event):
             line_bot_api.reply_message(rtoken, replyObj)
         elif (msg == "กินไรยัง") :
             line_bot_api.reply_message(rtoken, replyObj)
-            replyObj = TextSendMessage(text="กินแล้ว")
-        elif (msg == "ครับผม") :
+            replyObj = TextSendMessage(text="กินแล้ววว")
+        elif (msg == "แม่ให้กินหนมป่าว") :
             line_bot_api.reply_message(rtoken, replyObj)    
-            replyObj = TextSendMessage(text="ครับ")
-        elif (msg == "ไม่นะ") :
+            replyObj = TextSendMessage(text="ม่ายให้กินค่าาา")
+        elif (msg == "ไปเที่ยวกันนน") :
             line_bot_api.reply_message(rtoken, replyObj)    
-            replyObj = TextSendMessage(text="โน")
+            replyObj = TextSendMessage(text="ติดโควิดค่ะสาว")
         else :    
             headers = request.headers
             json_headers = json.dumps({k:v for k, v in headers.items()})
@@ -184,7 +184,6 @@ def event_handle(event):
 
             replyObj = TextSendMessage(text=json_headers)
             line_bot_api.reply_message(rtoken, replyObj)
-            
     elif msgType == "image":
         try:
             message_content = line_bot_api.get_message_content(event['message']['id'])
