@@ -154,8 +154,8 @@ def event_handle(event,json_line):
         elif (msg == "รายละเอียด 7f") :
             replyObj = TextSendMessage(text="https://www.uniqlo.com/th/th/products/E435830-000?colorCode=COL34")
             line_bot_api.reply_message(rtoken, replyObj)    
-        elif (msg == "ไปเที่ยวไหม") :
-            replyObj = TextSendMessage(text="ไปสิ")
+        elif (msg == "ราคาสินค้า 7f") :
+            replyObj = TextSendMessage(text="ไซส์S 150บาท ไซส์M 180บาท ไซส์L 200 บาท ค่าส่ง35บาท")
             line_bot_api.reply_message(rtoken, replyObj)
         elif msg == "covid" :
             url = "https://covid19.ddc.moph.go.th/api/Cases/today-cases-all"
