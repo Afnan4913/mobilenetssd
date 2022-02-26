@@ -148,11 +148,11 @@ def event_handle(event,json_line):
 
     if msgType == "text":
         msg = str(event["message"]["text"])
-        if (msg == "สวัสดี") :
-            replyObj = TextSendMessage(text="ดีด้วย")
+        if (msg == "สินค้า 7f") :
+            replyObj = TextSendMessage(text="สินค้าพร้อมส่ง")
             line_bot_api.reply_message(rtoken, replyObj)
-        elif (msg == "กินก๋วยเตี๋ยวไหม") :
-            replyObj = TextSendMessage(text="กินสิ หิวพอดีเลย")
+        elif (msg == "รายละเอียด 7f") :
+            replyObj = TextSendMessage(text="https://www.uniqlo.com/th/th/products/E435830-000?colorCode=COL34")
             line_bot_api.reply_message(rtoken, replyObj)    
         elif (msg == "ไปเที่ยวไหม") :
             replyObj = TextSendMessage(text="ไปสิ")
